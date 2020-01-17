@@ -6,107 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f025a186-bcae-4a8f-8cbc-ddb30c00017d" name="Default Changelist" comment="Initial files uploaded.">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyBlog.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tinshine/blog/controller/tUser/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tinshine/blog/dao/tUser/IUserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tinshine/blog/dao/tUser/IUserDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tinshine/blog/entity/UserEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tinshine/blog/service/tUser/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tinshine/blog/service/tUser/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/main.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/register.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/css/demo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/css/skins/blue.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/css/skins/darksidebar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/css/skins/deeppurple.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/css/skins/lightblue.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/img/avatar-1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/img/browsers/chrome.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/img/browsers/firefox.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/img/browsers/internet-explorer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/img/browsers/opera.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/img/browsers/safari.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/img/spinner.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/img/typing.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/demo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/moment.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/popper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/sa-functions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/scripts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/tooltip.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/css/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/js/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/bootstrap/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/fontawesome/fontawesome-all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/ionicons/ionicons.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/ionicons/ionicons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/nicescroll/jquery.nicescroll.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/modules/scroll-up-bar/scroll-up-bar.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/WEB-INF/classes/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/WEB-INF/classes/com/tinshine/blog/controller/tUser/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/WEB-INF/classes/com/tinshine/blog/dao/tUser/IUserDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/WEB-INF/classes/com/tinshine/blog/dao/tUser/IUserDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/WEB-INF/classes/com/tinshine/blog/entity/UserEntity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/WEB-INF/classes/com/tinshine/blog/service/tUser/UserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/WEB-INF/classes/com/tinshine/blog/service/tUser/UserServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/WEB-INF/classes/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/WEB-INF/classes/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/WEB-INF/classes/spring-mvc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/WEB-INF/classes/spring-mybatis.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/WEB-INF/pages/admin/main.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/static/img/avatar-1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/MyBlog/static/modules/ionicons/ionicons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/tinshine/blog/controller/tUser/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/tinshine/blog/dao/tUser/IUserDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/tinshine/blog/dao/tUser/IUserDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/tinshine/blog/entity/UserEntity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/tinshine/blog/service/tUser/UserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/tinshine/blog/service/tUser/UserServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/spring-mvc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/spring-mybatis.xml" afterDir="false" />
+    <list default="true" id="f025a186-bcae-4a8f-8cbc-ddb30c00017d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -421,8 +322,16 @@
       <workItem from="1579077854185" duration="9568000" />
       <workItem from="1579089221348" duration="5241000" />
       <workItem from="1579178243811" duration="3471000" />
-      <workItem from="1579231260629" duration="14305000" />
+      <workItem from="1579231260629" duration="14818000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial files uploaded.">
+      <created>1579249542989</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1579249542989</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,11 +346,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="275" y="28" key="#Inspections/0.0.1366.738@0.0.1366.738" timestamp="1578661312504" />
-    <state x="393" y="56" key="#Notifications" timestamp="1579057659418">
+    <state x="393" y="56" key="#Notifications" timestamp="1579249636029">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="552" y="184" key="#Notifications/-1366.172.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1578059093873" />
-    <state x="393" y="56" key="#Notifications/0.0.1366.738@0.0.1366.738" timestamp="1579057659418" />
+    <state x="393" y="56" key="#Notifications/0.0.1366.738@0.0.1366.738" timestamp="1579249636029" />
     <state x="272" y="56" key="#Project_Structure" timestamp="1579248487591">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -489,10 +398,10 @@
     </state>
     <state x="690" y="272" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1366.172.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1578829955289" />
     <state x="491" y="191" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1579245557861" />
-    <state x="402" y="39" width="800" height="695" key="CommitChangelistDialog2" timestamp="1579249415157">
+    <state x="402" y="39" width="800" height="695" key="CommitChangelistDialog2" timestamp="1579249537259">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="402" y="39" width="800" height="695" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1579249415157" />
+    <state x="402" y="39" width="800" height="695" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1579249537259" />
     <state x="541" y="221" width="804" height="489" key="FileChooserDialogImpl" timestamp="1579248452453">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -607,6 +516,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="498" height="446" key="SwitcherDM/-1366.172.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1578830728889" />
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1579249610061">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1579249610061" />
     <state x="645" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1577969868738">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
