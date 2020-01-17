@@ -5,4 +5,3 @@
 <script>
     window.location.href = "${APP_PATH}/user/index.action";
 </script>
-
