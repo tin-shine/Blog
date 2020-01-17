@@ -6,9 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f025a186-bcae-4a8f-8cbc-ddb30c00017d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f025a186-bcae-4a8f-8cbc-ddb30c00017d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -322,7 +320,7 @@
       <workItem from="1579077854185" duration="9568000" />
       <workItem from="1579089221348" duration="5241000" />
       <workItem from="1579178243811" duration="3471000" />
-      <workItem from="1579231260629" duration="14818000" />
+      <workItem from="1579231260629" duration="15076000" />
     </task>
     <task id="LOCAL-00001" summary="Initial files uploaded.">
       <created>1579249542989</created>
@@ -331,11 +329,36 @@
       <option name="project" value="LOCAL" />
       <updated>1579249542989</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Initial files uploaded.">
+      <created>1579249870902</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1579249870902</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Initial files uploaded.">
+      <created>1579250097097</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1579250097097</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial files uploaded." />
@@ -398,10 +421,10 @@
     </state>
     <state x="690" y="272" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1366.172.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1578829955289" />
     <state x="491" y="191" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1579245557861" />
-    <state x="402" y="39" width="800" height="695" key="CommitChangelistDialog2" timestamp="1579249869618">
+    <state x="402" y="39" width="800" height="695" key="CommitChangelistDialog2" timestamp="1579250095895">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="402" y="39" width="800" height="695" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1579249869618" />
+    <state x="402" y="39" width="800" height="695" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1579250095895" />
     <state x="129" y="51" key="DiffContextDialog" timestamp="1579249879952">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -520,10 +543,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="498" height="446" key="SwitcherDM/-1366.172.1366.738/0.0.1920.1050@0.0.1920.1050" timestamp="1578830728889" />
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1579249896007">
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2" timestamp="1579250101556">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1579249896007" />
+    <state x="275" y="91" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1579250101556" />
     <state x="645" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1577969868738">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
