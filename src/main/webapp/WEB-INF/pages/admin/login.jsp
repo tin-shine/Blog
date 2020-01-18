@@ -7,7 +7,7 @@
     <title>Login</title>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/modules/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/modules/ionicons/ionicons.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/modules/ionicons/css/ionicons.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/modules/fontawesome/fontawesome-all.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/style.css">
 </head>
@@ -36,7 +36,7 @@
                                         <%--                                            </a>--%>
                                         <%--                                        </div>--%>
                                     </label>
-                                    <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                                    <input id="password" type="password" class="form-control" name="password" tabindex="2" onkeypress="pressEnter(event)" required>
                                     <div id="invalid-pswd" class="invalid-feedback">请输入密码</div>
                                 </div>
                                 <div class="form-group">
@@ -104,6 +104,12 @@
             });
         }
     });
+    function pressEnter(e) {
+        if (e == 13) {
+            // $("#submit").trigger("click");
+            alert("press Enter");
+        }
+    }
 </script>
 </body>
 </html>

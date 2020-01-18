@@ -14,7 +14,7 @@
     <title>博客后台</title>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/modules/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/modules/ionicons/ionicons.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/modules/ionicons/css/ionicons.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/modules/fontawesome/fontawesome-all.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/style.css">
 </head>
@@ -22,7 +22,7 @@
 <body>
 <div id="app">
     <div class="main-wrapper">
-        <div class="navbar-bg"></div>
+        <div class="navbar-bg" style="height: 75px"></div>
         <nav class="navbar navbar-expand-lg main-navbar">
             <form class="form-inline mr-auto">
                 <ul class="navbar-nav mr-3">
@@ -35,7 +35,9 @@
                 </div>
             </form>
             <ul class="navbar-nav navbar-right">
-                <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="ion ion-ios-bell-outline"></i></a>
+                <li class="dropdown dropdown-list-toggle">
+                    <a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep">
+                    <i class="ion ion-ios-bell-outline"></i></a>
                     <div class="dropdown-menu dropdown-list dropdown-menu-right">
                         <div class="dropdown-header">通 知
                             <div class="float-right">
@@ -186,8 +188,8 @@
                 </div>
             </aside>
         </div>
-        <div class="main-content">Section里所有的东西都被删掉了</div>
-        <footer class="main-footer">
+        <div class="main-content" style="min-height: 570px">Section里所有的东西都被删掉了</div>
+        <footer class="main-footer" style="text-align: center">
             <div class="footer-left">
                 Copyright &copy; All rights reserved <div class="bullet"></div> Blog System
             </div>
@@ -196,5 +198,8 @@
     </div>
 </div>
 
+<script>
+    $("#sidebar-wrapper").css()
+</script>
 </body>
 </html>

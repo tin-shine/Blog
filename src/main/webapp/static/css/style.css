@@ -543,7 +543,7 @@ body.sidebar-gone .main-content {
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	margin-top: 40px;
+	/*margin-top: 40px;*/
 	background-color: #fff;
 	color: #999;
 }
