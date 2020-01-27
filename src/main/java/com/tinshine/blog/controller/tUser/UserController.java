@@ -1,5 +1,6 @@
 package com.tinshine.blog.controller.tUser;
 
+import com.tinshine.blog.entity.ReturnEntity;
 import com.tinshine.blog.service.tUser.UserServiceImpl;
 import com.tinshine.blog.entity.UserEntity;
 import org.apache.log4j.Logger;
@@ -32,7 +33,7 @@ public class UserController {
 
     @RequestMapping("login.json") // 处理登录界面表单提交过来的数据
     @ResponseBody
-    public String login (Model map, HttpServletRequest request) {
+    public ReturnEntity login (Model map, HttpServletRequest request) {
         logger.debug("开始登录");
         String name = request.getParameter("userName");
         logger.info("用户名为：" + name);
@@ -41,9 +42,10 @@ public class UserController {
 
         UserEntity userFound = userService.searchUser(name, pswd);
         if (userFound == null)
-            return "error";
-        else
-            return "/user/main.action";
+            return ReturnEntity.error("用户名或密码不正确");
+
+        request.setAttribute("userFound", userFound);
+        return ReturnEntity.success();
     }
 
     @RequestMapping("register.action")

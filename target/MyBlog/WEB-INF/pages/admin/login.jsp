@@ -50,9 +50,7 @@
                             <button type="button" id="submit" class="btn btn-primary btn-block" tabindex="4">
                                 Login
                             </button>
-                            <div id="invalid-post" class="invalid-feedback" style="text-align: center; margin-top: 20px">
-                                用户名或密码错误
-                            </div>
+                            <div id="invalid-post" class="invalid-feedback" style="text-align: center; margin-top: 20px"></div>
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -89,13 +87,14 @@
             $.ajax({
                 url: "${pageContext.request.contextPath}/user/login.json",
                 type: "POST",
-                dataType: "text",
+                dataType: "json",
                 data: $("#login").serialize(),
                 success: function (rtn) {
-                    if (rtn == "error") {
+                    if (rtn.code == -1) {
+                        $("#invalid-post").text(rtn.msg);
                         $("#invalid-post").css('display', 'block');
                     } else {
-                        window.location.href = "${pageContext.request.contextPath}" + rtn;
+                        window.location.href = "${pageContext.request.contextPath}" + "/user/main.action";
                     }
                 },
                 error: function (rtn) {
