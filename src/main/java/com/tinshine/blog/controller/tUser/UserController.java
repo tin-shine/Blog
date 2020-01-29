@@ -55,4 +55,10 @@ public class UserController {
     public String register() {
         return "/admin/register";
     }
+
+    @RequestMapping("logout.action")
+    public String logOut(HttpServletRequest request) {
+        request.getSession().invalidate();
+        return "/admin/login";
+    }
 }
