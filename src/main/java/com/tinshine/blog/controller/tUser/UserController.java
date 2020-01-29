@@ -41,11 +41,14 @@ public class UserController {
         logger.info("密码为：" + pswd);
 
         UserEntity userFound = userService.searchUser(name, pswd);
-        if (userFound == null)
+        if (userFound == null) {
             return ReturnEntity.error("用户名或密码不正确");
-
-        request.setAttribute("userFound", userFound);
-        return ReturnEntity.success();
+        } else {
+            request.getSession().setAttribute("userFound", userFound);
+            logger.debug("userFound != null");
+            logger.debug("设置了request的attribute");
+            return ReturnEntity.success();
+        }
     }
 
     @RequestMapping("register.action")
