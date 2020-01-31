@@ -15,4 +15,9 @@ public class UserServiceImpl implements UserService {
     public UserEntity searchUser(String name, String pswd) {
         return iUserDao.searchUser(name, pswd);
     }
-            }
+
+    @Override
+    public boolean createUser(String name, String email, String pswd) {
+        return iUserDao.createUser(name, email, pswd);
+    }
+}

@@ -5,4 +5,6 @@ import org.apache.ibatis.annotations.Param;
 
 public interface IUserDao {
     UserEntity searchUser(@Param("name") String name, @Param("pswd") String pswd);
+
+    boolean createUser(@Param("name") String name, @Param("email") String email, @Param("pswd") String pswd);
 }

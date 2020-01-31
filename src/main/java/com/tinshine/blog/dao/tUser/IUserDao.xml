@@ -20,4 +20,10 @@
         AND
             passWord = #{pswd}
     </select>
+
+    <insert id="createUser">
+        INSERT
+        INTO t_user
+        VALUES (null, #{name}, #{pswd}, null, null)
+    </insert>
 </mapper>

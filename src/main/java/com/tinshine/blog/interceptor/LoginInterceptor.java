@@ -29,15 +29,6 @@ public class LoginInterceptor implements HandlerInterceptor {
                 return false;
             }
         }
-//        if (url.contains("index.action") || url.contains("login.json"))
-//            return true;
-//
-//        HttpSession httpSession = request.getSession();
-//        UserEntity userFound = (UserEntity) httpSession.getAttribute("userFound");
-//        if (userFound != null)
-//            return true;
-//
-//        request.getRequestDispatcher("/WEB-INF/pages/admin/login.jsp").forward(request, response);
         return true;
     }
 

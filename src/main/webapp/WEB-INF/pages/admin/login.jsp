@@ -36,7 +36,7 @@
                                         <%--                                            </a>--%>
                                         <%--                                        </div>--%>
                                     </label>
-                                    <input id="password" type="password" class="form-control" name="password" tabindex="2" onkeypress="pressEnter(event)" required>
+                                    <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
                                     <div id="invalid-pswd" class="invalid-feedback">请输入密码</div>
                                 </div>
                                 <div class="form-group">
@@ -103,12 +103,6 @@
             });
         }
     });
-    function pressEnter(e) {
-        if (e == 13) {
-            // $("#submit").trigger("click");
-            alert("press Enter");
-        }
-    }
 </script>
 </body>
 </html>

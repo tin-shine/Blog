@@ -56,6 +56,19 @@ public class UserController {
         return "/admin/register";
     }
 
+    @RequestMapping("register.json")
+    @ResponseBody
+    public ReturnEntity register (Model map, HttpServletRequest request) {
+        String name = request.getParameter("userName");
+        String email = request.getParameter("email");
+        String pswd = request.getParameter("password");
+
+        if (userService.searchUser(name,pswd) != null)
+            return ReturnEntity.error("用户已存在");
+        userService.createUser(name, email, pswd);
+        return ReturnEntity.success();
+    }
+
     @RequestMapping("logout.action")
     public String logOut(HttpServletRequest request) {
         request.getSession().invalidate();
