@@ -27,7 +27,7 @@ public class UserController {
     }
 
     @RequestMapping("main.action")
-    public String mainPanel () {
+    public String mainPanel (HttpServletRequest request) {
         return "/admin/main";
     }
 
@@ -45,8 +45,6 @@ public class UserController {
             return ReturnEntity.error("用户名或密码不正确");
         } else {
             request.getSession().setAttribute("userFound", userFound);
-            logger.debug("userFound != null");
-            logger.debug("设置了request的attribute");
             return ReturnEntity.success();
         }
     }

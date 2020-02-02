@@ -22,13 +22,16 @@ public class LoginInterceptor implements HandlerInterceptor {
             HttpSession httpSession = request.getSession();
             UserEntity userFound = (UserEntity) httpSession.getAttribute("userFound");
             if (userFound != null) {
+                logger.debug("url: [" + url + "] 放行");
                 return true;
             } else {
                 logger.debug("userFound == null");
                 request.getRequestDispatcher("/WEB-INF/pages/admin/login.jsp").forward(request, response);
+                logger.debug("url: [" + url + "] 拦截");
                 return false;
             }
         }
+        logger.debug("url: [" + url + "] 放行");
         return true;
     }
 

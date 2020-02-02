@@ -134,7 +134,7 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .fab {
 	vertical-align: middle;
 	width: 70%;
 	text-align: left;
-	padding-left: 10px;
+	padding-left: 20px;
 }
 .btn {
 	font-size: 14px;
@@ -428,16 +428,19 @@ body.sidebar-gone .main-content {
 .main-sidebar .sidebar-user .sidebar-user-picture img {
 	width: 50px;
 	border-radius: 50%;
+	margin-left: 20px;
 }
 .main-sidebar .sidebar-user .sidebar-user-details .user-name {
 	white-space: nowrap;
 	-o-text-overflow: ellipsis;
 	   text-overflow: ellipsis;
 	overflow: hidden;
-	margin-top: 7px;
-	margin-bottom: 3px;
+	margin-top: 8px;
+	/*margin-bottom: 3px;*/
+	padding-left: 20px;
 	font-weight: 600;
 	color: #505c66;
+	font-size: 20px;
 }
 .main-sidebar .sidebar-user .sidebar-user-details .user-role {
 	font-size: 12px;
@@ -538,7 +541,7 @@ body.sidebar-gone .main-content {
 }
 .main-footer {
 	font-family: 'Montserrat';
-	padding: 20px 30px 20px 280px;
+	padding: 20px 30px 20px 30px;
 	font-size: 10px;
 	font-weight: 600;
 	text-transform: uppercase;
@@ -546,6 +549,7 @@ body.sidebar-gone .main-content {
 	/*margin-top: 40px;*/
 	background-color: #fff;
 	color: #999;
+	text-align: center;
 }
 /* end layout */
 

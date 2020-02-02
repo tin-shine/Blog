@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.tinshine.blog.dao.tBlog.IBlogDao">
+
+    <insert id="addArticle">
+        INSERT
+        INTO t_blog
+        VALUES (null, #{title}, null, null, null, #{content}, null, null, #{type}, null);
+    </insert>
+</mapper>
