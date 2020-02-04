@@ -75,14 +75,14 @@
                         </a>
                     </li>
                 </ul>
-                <div class="float-right" style="width: 100px; text-align: center; font-size: 18px">
-                    <a href="${pageContext.request.contextPath}/user/index.action">
-                        登录/注册
-                    </a>
-                </div>
-<%--                <div class="btn-sing float-right">--%>
-<%--                    <a class="btn btn-border" href="#feature">按钮</a>--%>
+<%--                <div class="float-right" style="width: 100px; text-align: center; font-size: 18px">--%>
+<%--                    <a href="${pageContext.request.contextPath}/user/index.action">--%>
+<%--                        登录/注册--%>
+<%--                    </a>--%>
 <%--                </div>--%>
+                <div class="btn-sing float-right">
+                    <a class="btn btn-border" href="${pageContext.request.contextPath}/user/index.action">登录/注册</a>
+                </div>
             </div>
         </div>
 
@@ -104,7 +104,7 @@
                 </a>
             </li>
             <li>
-                <a class="page-scroll" href="${pageContext.request.contextPath}/user/index.action">
+                <a class="" href="${pageContext.request.contextPath}/user/index.action">
                     登录/注册
                 </a>
             </li>
