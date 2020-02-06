@@ -1,8 +1,10 @@
-<%--
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.tinshine.blog.entity.BlogEntity" %><%--
   Created by IntelliJ IDEA.
   User: tinshine
-  Date: 2020/2/4
-  Time: 0:08
+  Date: 2020/2/5
+  Time: 23:03
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -52,14 +54,14 @@
                     <span class="icon-menu"></span>
                 </button>
                 <a href="${pageContext.request.contextPath}/front/index.action" class="navbar-brand" style="margin-top: 10px; margin-bottom: 10px">
-                    <span style="margin: 5px 0px; font-size: 28px">
+                    <span style="margin: 5px 0px; font-size: 28px; color: #585b60">
                         Home
                     </span>
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="navbar-nav mr-auto w-100 justify-content-left clearfix">
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="${pageContext.request.contextPath}/front/articles.action">
                             文章
                         </a>
@@ -75,9 +77,6 @@
                         </a>
                     </li>
                 </ul>
-                <div class="btn-sing float-right">
-                    <a class="btn btn-border" href="${pageContext.request.contextPath}/user/index.action">登录/注册</a>
-                </div>
             </div>
         </div>
 
@@ -111,53 +110,53 @@
 
 </header>
 <!-- Header Area wrapper End -->
-
-<section class="section-padding" style="min-height: 450px">
-    <div class="container" style="margin-top: 50px; margin-bottom: 50px">
-        <div class="contents text-center">
-            <div class="active" data-tab-group="carousel" id="carousel-simple">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="${pageContext.request.contextPath}/static/img/img01.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="${pageContext.request.contextPath}/static/img/img02.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="${pageContext.request.contextPath}/static/img/img03.jpg" alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
+<section class="section-padding" style="min-height: 450px; margin-top: 50px">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <div class="contents text-center">
-                    <h2 class="head-title wow fadeInUp">Welcome,<br> My Friend</h2>
-                    <div class="header-button wow fadeInUp" data-wow-delay="0.3s">
-                        <a href="#" class="btn btn-common" style="background-color: #934db7">随便看看</a>
+            <c:forEach items="${blogs}" var="blog">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 id="title">${blog.title}</h4>
+                        </div>
+                        <div id="summary" class="card-body">
+                            ${blog.summary}
+                        </div>
+                        <div id="info" class="card-footer">
+                            ${blog.releaseDate}
+                        </div>
                     </div>
                 </div>
-            </div>
+            </c:forEach>
         </div>
     </div>
+        <div style="display: table; margin: 0 auto">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination" style="font-size: 18px">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+        </nav>
+        </div>
 </section>
 
 <!-- Footer Section Start -->

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 @RequestMapping("blog")
@@ -47,8 +49,21 @@ public class BlogController {
         logger.debug("TypeID: " + typeID);
         String content = request.getParameter("content");
         logger.debug("content: " + content);
-        blogService.addArticle(title, content, typeID);
+        int summaryLen = 100;
+        String summary = getSummary(content, summaryLen) + "......";
+        logger.debug("summary: " + summary);
+        String releaseDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(new Date());
+        blogService.addArticle(title, content, summary, releaseDate, typeID);
         return ReturnEntity.success();
+    }
+
+    private String getSummary(String content, int summaryLen) {
+        int i = 0;
+        String summary = "";
+        while (i < content.length() && i <= 100) {
+            summary += content.charAt(i++);
+        }
+        return summary;
     }
 }
 //    @RequestMapping("addArticle.json")

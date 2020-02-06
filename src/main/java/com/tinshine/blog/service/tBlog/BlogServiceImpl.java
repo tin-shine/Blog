@@ -1,8 +1,11 @@
 package com.tinshine.blog.service.tBlog;
 
 import com.tinshine.blog.dao.tBlog.IBlogDao;
+import com.tinshine.blog.entity.BlogEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service("BlogService")
 public class BlogServiceImpl implements BlogService {
@@ -11,7 +14,12 @@ public class BlogServiceImpl implements BlogService {
     public IBlogDao iBlogDao;
 
     @Override
-    public boolean addArticle(String title, String content, int type) {
-        return iBlogDao.addArticle(title, content, type);
+    public boolean addArticle(String title, String content, String summary, String releaseDate, int type) {
+        return iBlogDao.addArticle(title, content, summary, releaseDate, type);
+    }
+
+    @Override
+    public List<BlogEntity> listBlogs() {
+        return iBlogDao.listBlogs();
     }
 }

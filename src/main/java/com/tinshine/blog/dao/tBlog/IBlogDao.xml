@@ -4,10 +4,28 @@
         "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
 <mapper namespace="com.tinshine.blog.dao.tBlog.IBlogDao">
+    <resultMap id="listBlogs" type="com.tinshine.blog.entity.BlogEntity">
+        <result column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="summary" property="summary"/>
+        <result column="releaseDate" property="releaseDate"/>
+        <result column="updateDate" property="updateDate"/>
+        <result column="content" property="content"/>
+        <result column="clickCount" property="click"/>
+        <result column="replyCount" property="reply"/>
+        <result column="typeID" property="type"/>
+        <result column="keyWord" property="keyWord"/>
+    </resultMap>
+
+    <select id="listBlogs" resultMap="listBlogs">
+        select *
+        from t_blog
+        order by releaseDate;
+    </select>
 
     <insert id="addArticle">
         INSERT
         INTO t_blog
-        VALUES (null, #{title}, null, null, null, #{content}, null, null, #{type}, null);
+        VALUES (null, #{title}, #{summary}, #{releaseDate}, null, #{content}, null, null, #{type}, null);
     </insert>
 </mapper>
