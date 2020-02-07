@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -30,5 +31,12 @@ public class FrontController {
         logger.debug("查询到的文章数：" + blogs.size());
         map.put("blogs", blogs);
         return "/front/article";
+    }
+
+    @RequestMapping("detail.action")
+    public String showDetail(ModelMap map, @RequestParam(value = "id") int id) {
+        BlogEntity blogDetail = blogService.getBlogById(id);
+        map.put("blog", blogDetail);
+        return "/front/detail";
     }
 }

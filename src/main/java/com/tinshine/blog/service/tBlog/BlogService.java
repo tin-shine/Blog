@@ -10,4 +10,6 @@ public interface BlogService {
     public boolean addArticle(String title, String content, String summary, String releaseDate, int type);
 
     List<BlogEntity> listBlogs();
+
+    BlogEntity getBlogById(int id);
 }

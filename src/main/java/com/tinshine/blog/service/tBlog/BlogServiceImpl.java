@@ -22,4 +22,9 @@ public class BlogServiceImpl implements BlogService {
     public List<BlogEntity> listBlogs() {
         return iBlogDao.listBlogs();
     }
+
+    @Override
+    public BlogEntity getBlogById(int id) {
+        return iBlogDao.getBlogById(id);
+    }
 }

@@ -1,10 +1,9 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.tinshine.blog.entity.BlogEntity" %><%--
+<%--@elvariable id="blog" type="com.tinshine.blog.entity.BlogEntity"--%>
+<%--
   Created by IntelliJ IDEA.
   User: tinshine
-  Date: 2020/2/5
-  Time: 23:03
+  Date: 2020/2/7
+  Time: 13:44
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -18,7 +17,8 @@
     <title>Blog Tinshine</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/modules/bootstrap/css/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css"
+          href="${pageContext.request.contextPath}/static/modules/bootstrap/css/bootstrap.min.css">
     <!-- Icon -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/fonts/line-icons.css">
     <!-- Slicknav -->
@@ -27,33 +27,36 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/owl.theme.css">
     <!-- Slick Slider -->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/slick.css" >
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/slick-theme.css" >
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/slick-theme.css">
     <!-- Animate -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/animate.css">
     <!-- Main Style -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/main.css">
     <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/responsive.css">
-
+    <%--    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/front/front-main.css">--%>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/modules/ionicons/css/ionicons.min.css">
 </head>
 <body>
 
 <!-- Header Area wrapper Starts -->
 <header id="header-wrap">
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
+    <nav class="navbar navbar-expand-lg fixed-top indigo">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
+                        aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     <span class="icon-menu"></span>
                     <span class="icon-menu"></span>
                     <span class="icon-menu"></span>
                 </button>
-                <a href="${pageContext.request.contextPath}/front/index.action" class="navbar-brand" style="margin-top: 10px; margin-bottom: 10px">
+                <a href="${pageContext.request.contextPath}/front/index.action" class="navbar-brand"
+                   style="margin-top: 10px; margin-bottom: 10px">
                     <span style="margin: 5px 0px; font-size: 28px; color: #585b60">
                         Home
                     </span>
@@ -61,7 +64,7 @@
             </div>
             <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="navbar-nav mr-auto w-100 justify-content-left clearfix">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="${pageContext.request.contextPath}/front/articles.action">
                             文章
                         </a>
@@ -110,65 +113,42 @@
 
 </header>
 <!-- Header Area wrapper End -->
-<section class="section-padding" style="min-height: 450px; margin-top: 50px">
-    <div class="container">
+<section>
+    <div class="container" style="margin-top: 90px">
         <div class="row">
-            <c:forEach items="${blogs}" var="blog">
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <a href="${pageContext.request.contextPath}/front/detail.action?id=${blog.id}">
+            <div class="col-md-12 col-sm-12">
+                <div class="contents text-left">
                     <div class="card">
                         <div class="card-header">
-                            <h4 id="title">
-                                ${blog.title}
-                            </h4>
+                            <h1>${blog.title}</h1>
+                            <ul>
+                                <li style="color: #3d3fff"><i class="ion ion-clipboard"></i> ${blog.releaseDate}</li>
+                                <li style="color: #574B90"><i class="ion ion-edit"></i> ${blog.releaseDate}</li>
+                                <li style="color: #ff332c"><i class="ion ion-flame"></i> ${blog.click}</li>
+                            </ul>
                         </div>
-                        <div id="summary" class="card-body" style="color: #817e7b">
-                            ${blog.summary}
+                        <div class="card-body">
+                            <div>
+                                ${blog.content}
+                            </div> <!-- end entry-primary -->
                         </div>
                         <div id="info" class="card-footer">
-                            ${blog.releaseDate}
+                            footer
                         </div>
                     </div>
-                    </a>
+                    <article style="color: #151515">
+
+                    </article>
                 </div>
-            </c:forEach>
+            </div>
         </div>
     </div>
-        <div style="display: table; margin: 0 auto">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination" style="font-size: 18px">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
-                </ul>
-        </nav>
-        </div>
-</section>
-
+</section> <!-- end content -->
 <!-- Footer Section Start -->
 <footer id="footer" class="main-footer" style="background: #34363a;">
     Nice to meet you
 </footer>
 <!-- Footer Section End -->
-
 <!-- Go to Top Link -->
 <a href="#" class="back-to-top">
     <i class="lni-arrow-up"></i>
@@ -179,7 +159,6 @@
     <div class="loader" id="loader-1"></div>
 </div>
 <!-- End Preloader -->
-
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="${pageContext.request.contextPath}/static/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/popper.js"></script>
@@ -194,7 +173,6 @@
 <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/form-validator.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/contact-form-script.min.js"></script>
-
 
 
 </body>

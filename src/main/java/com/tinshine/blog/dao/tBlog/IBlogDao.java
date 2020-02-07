@@ -11,4 +11,6 @@ public interface IBlogDao {
                        @Param("type") int type);
 
     List<BlogEntity> listBlogs();
+
+    BlogEntity getBlogById(@Param("id") int id);
 }
