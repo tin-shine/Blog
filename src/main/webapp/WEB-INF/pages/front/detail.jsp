@@ -36,7 +36,7 @@
     <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/responsive.css">
     <%--    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/front/front-main.css">--%>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style.css">
+<%--    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style.css">--%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/modules/ionicons/css/ionicons.min.css">
 </head>
 <body>
@@ -123,7 +123,9 @@
                             <h1>${blog.title}</h1>
                             <ul>
                                 <li style="color: #3d3fff"><i class="ion ion-clipboard"></i> ${blog.releaseDate}</li>
+                                <li>|</li>
                                 <li style="color: #574B90"><i class="ion ion-edit"></i> ${blog.releaseDate}</li>
+                                <li>|</li>
                                 <li style="color: #ff332c"><i class="ion ion-flame"></i> ${blog.click}</li>
                             </ul>
                         </div>
@@ -132,7 +134,7 @@
                                 ${blog.content}
                             </div> <!-- end entry-primary -->
                         </div>
-                        <div id="info" class="card-footer">
+                        <div id="info" class="card-footer" style="text-align: right">
                             footer
                         </div>
                     </div>

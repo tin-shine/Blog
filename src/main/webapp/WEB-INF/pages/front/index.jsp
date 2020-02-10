@@ -34,7 +34,7 @@
     <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/responsive.css">
 
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style.css">
+<%--    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style.css">--%>
 </head>
 <body>
 
@@ -99,7 +99,7 @@
                 </a>
             </li>
             <li>
-                <a class="" href="${pageContext.request.contextPath}/user/index.action">
+                <a class="page-scroll" href="${pageContext.request.contextPath}/user/index.action">
                     登录/注册
                 </a>
             </li>
@@ -152,7 +152,7 @@
                 <div class="contents text-center">
                     <h2 class="head-title wow fadeInUp">Welcome,<br> My Friend</h2>
                     <div class="header-button wow fadeInUp" data-wow-delay="0.3s">
-                        <a href="#" class="btn btn-common" style="background-color: #934db7">随便看看</a>
+                        <a href="${pageContext.request.contextPath}/front/randomPage.action" id="random" class="btn btn-common" style="background-color: #574B90">随便看看</a>
                     </div>
                 </div>
             </div>
@@ -191,7 +191,6 @@
 <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/form-validator.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/contact-form-script.min.js"></script>
-
 
 
 </body>

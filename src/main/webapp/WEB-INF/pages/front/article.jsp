@@ -36,7 +36,7 @@
     <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/responsive.css">
 
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style.css">
+<%--    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style.css">--%>
 </head>
 <body>
 
@@ -98,7 +98,7 @@
                 </a>
             </li>
             <li>
-                <a class="" href="${pageContext.request.contextPath}/user/index.action">
+                <a class="page-scroll" href="${pageContext.request.contextPath}/user/index.action">
                     登录/注册
                 </a>
             </li>
@@ -116,16 +116,16 @@
             <c:forEach items="${blogs}" var="blog">
                 <div class="col-12 col-sm-6 col-lg-3">
                     <a href="${pageContext.request.contextPath}/front/detail.action?id=${blog.id}">
-                    <div class="card">
+                    <div class="card" style="margin-top: 25px">
                         <div class="card-header">
-                            <h4 id="title">
+                            <h4 id="title" style="font-size: 22px">
                                 ${blog.title}
                             </h4>
                         </div>
                         <div id="summary" class="card-body" style="color: #817e7b">
                             ${blog.summary}
                         </div>
-                        <div id="info" class="card-footer">
+                        <div id="info" class="card-footer" style="text-align: right">
                             ${blog.releaseDate}
                         </div>
                     </div>

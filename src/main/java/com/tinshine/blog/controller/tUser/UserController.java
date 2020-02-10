@@ -1,22 +1,30 @@
 package com.tinshine.blog.controller.tUser;
 
+import com.tinshine.blog.entity.BlogEntity;
 import com.tinshine.blog.entity.ReturnEntity;
+import com.tinshine.blog.service.tBlog.BlogServiceImpl;
 import com.tinshine.blog.service.tUser.UserServiceImpl;
 import com.tinshine.blog.entity.UserEntity;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("user")
 public class UserController {
 
     private Logger logger = Logger.getLogger(this.getClass());
+
+    @Autowired
+    private BlogServiceImpl blogService;
 
     @Autowired
     private UserServiceImpl userService;
@@ -71,5 +79,25 @@ public class UserController {
     public String logOut(HttpServletRequest request) {
         request.getSession().invalidate();
         return "/admin/login";
+    }
+
+    @RequestMapping("listBlogs.action")
+    public String listBlogs(ModelMap map) {
+        List<BlogEntity> blogs = blogService.listBlogs();
+        map.put("blogs", blogs);
+        return "/admin/listBlogs";
+    }
+
+    @RequestMapping("editBlog.action")
+    public String editBlog(HttpServletRequest request, @RequestParam(value = "id") int id) {
+        BlogEntity blog = blogService.getBlogById(id);
+        request.getSession().setAttribute("blog", blog);
+        return "/admin/editBlog";
+    }
+
+    @RequestMapping("deleteBlog.action")
+    public String deleteBlog(ModelMap map, @RequestParam(value = "id") int id) {
+        blogService.deleteBlogById(id);
+        return listBlogs(map);
     }
 }

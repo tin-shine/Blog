@@ -27,4 +27,14 @@ public class BlogServiceImpl implements BlogService {
     public BlogEntity getBlogById(int id) {
         return iBlogDao.getBlogById(id);
     }
+
+    @Override
+    public boolean updateArticle(String title, String content, String summary, String updateDate, int id) {
+        return iBlogDao.updateArticle(title, content, summary, updateDate, id);
+    }
+
+    @Override
+    public boolean deleteBlogById(int id) {
+        return iBlogDao.deleteBlogById(id);
+    }
 }

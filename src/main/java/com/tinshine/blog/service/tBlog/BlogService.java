@@ -7,9 +7,9 @@ import java.util.List;
 
 @Service
 public interface BlogService {
-    public boolean addArticle(String title, String content, String summary, String releaseDate, int type);
-
+    boolean addArticle(String title, String content, String summary, String releaseDate, int type);
     List<BlogEntity> listBlogs();
-
     BlogEntity getBlogById(int id);
+    boolean updateArticle(String title, String content, String summary, String updateDate, int id);
+    boolean deleteBlogById(int id);
 }

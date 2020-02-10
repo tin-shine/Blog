@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -38,5 +39,17 @@ public class FrontController {
         BlogEntity blogDetail = blogService.getBlogById(id);
         map.put("blog", blogDetail);
         return "/front/detail";
+    }
+
+    @RequestMapping("randomPage.action")
+    public String randomPage(ModelMap map) {
+        List<BlogEntity> blogs = blogService.listBlogs();
+        List<Integer> blogsId = new ArrayList<>();
+        for (BlogEntity blog: blogs) {
+            blogsId.add(blog.getId());
+        }
+        int num = (int) (Math.random() * blogsId.size());
+        int id = blogsId.get(num);
+        return showDetail(map, id);
     }
 }

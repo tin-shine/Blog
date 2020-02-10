@@ -16,7 +16,6 @@
         <result column="typeID" property="type"/>
         <result column="keyWord" property="keyWord"/>
     </resultMap>
-
     <select id="listBlogs" resultMap="blogs">
         select *
         from t_blog
@@ -34,4 +33,15 @@
         INTO t_blog
         VALUES (null, #{title}, #{summary}, #{releaseDate}, #{releaseDate}, #{content}, null, null, #{type}, null);
     </insert>
+
+    <update id="updateArticle">
+        update t_blog
+        set title = #{title}, content = #{content}, summary = #{summary}, updateDate = #{updateDate}
+        where id = #{id};
+    </update>
+
+    <delete id="deleteBlogById">
+        delete from t_blog
+        where id = #{id};
+    </delete>
 </mapper>

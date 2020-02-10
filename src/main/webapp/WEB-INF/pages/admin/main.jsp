@@ -91,8 +91,8 @@
                     <li>
                         <a href="#" class="has-dropdown"><i class="ion ion-pricetags"></i><span>博客分类</span></a>
                         <ul class="menu-dropdown">
-                            <li><a href="#"><i class="ion ion-ios-paperplane-outline"></i> 随笔</a></li>
-                            <li><a href="#"><i class="ion ion-android-bulb"></i> 技术博客</a></li>
+                            <li><a href="${pageContext.request.contextPath}/user/listBlogs.action"><i class="ion ion-ios-paperplane-outline"></i> 随笔</a></li>
+                            <li><a href="${pageContext.request.contextPath}/user/listBlogs.action"><i class="ion ion-android-bulb"></i> 技术博客</a></li>
                         </ul>
                     </li>
                 </ul>

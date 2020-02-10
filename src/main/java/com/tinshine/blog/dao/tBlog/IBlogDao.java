@@ -9,8 +9,9 @@ public interface IBlogDao {
     boolean addArticle(@Param("title") String title, @Param("content") String content,
                        @Param("summary") String summary, @Param("releaseDate") String releaseDate,
                        @Param("type") int type);
-
     List<BlogEntity> listBlogs();
-
     BlogEntity getBlogById(@Param("id") int id);
+    boolean updateArticle(@Param("title") String title, @Param("content") String content, @Param("summary") String summary,
+                          @Param("updateDate") String updateDate, @Param("id") int id);
+    boolean deleteBlogById(@Param("id") int id);
 }

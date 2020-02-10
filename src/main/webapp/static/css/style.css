@@ -724,7 +724,8 @@ body.sidebar-gone .main-content {
 	width: 100%;
 }
 .card .card-header ul{
-	font-size: 18px;
+	font-size: 14px;
+	margin-top: 15px;
 }
 .card .card-header li {
 	display: inline-block;
@@ -761,9 +762,10 @@ body.sidebar-gone .main-content {
 	font-size: 14px;
 }
 .card .card-footer {
-	background-color: transparent;
+	/*background-color: transparent;*/
 	border: none;
-	padding-top: 0;
+	/*padding-top: 0;*/
+	text-align: right;
 }
 .card.card-lg .card-header,
 .card.card-sm .card-header,

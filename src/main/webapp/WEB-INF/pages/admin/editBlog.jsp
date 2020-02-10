@@ -1,12 +1,19 @@
-<%@page import="com.tinshine.blog.entity.UserEntity" %>
-<%@page pageEncoding="UTF-8" %>
+<%--<jsp:useBean id="blog" scope="request" type="com.tinshine.blog.entity.BlogEntity"/>--%>
+<%@ page import="com.tinshine.blog.entity.UserEntity" %><%--
+  Created by IntelliJ IDEA.
+  User: tinshine
+  Date: 2020/2/10
+  Time: 14:13
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
           name="viewport">
-    <title>新建随笔</title>
+    <title>编辑随笔</title>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/modules/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/modules/ionicons/css/ionicons.min.css">
@@ -97,10 +104,10 @@
                     </li>
 
                     <li class="menu-header">功 能</li>
-                    <li class="active">
-                        <a href="#"><i class="ion ion-android-create"></i><span>新建随笔</span></a>
-                    </li>
                     <li>
+                        <a href="${pageContext.request.contextPath}/blog/NewArticle.action"><i class="ion ion-android-create"></i><span>新建随笔</span></a>
+                    </li>
+                    <li class="active">
                         <a href="#" class="has-dropdown"><i class="ion ion-pricetags"></i><span>博客分类</span></a>
                         <ul class="menu-dropdown">
                             <li><a href="${pageContext.request.contextPath}/user/listBlogs.action"><i class="ion ion-ios-paperplane-outline"></i> 随笔</a></li>
@@ -120,19 +127,16 @@
         <div class="main-content">
             <section class="section">
                 <h1 class="section-header">
-                    <div>新建随笔</div>
+                    <div>编辑随笔</div>
                 </h1>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-12 col-sm-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h4 style="text-align: center; font-size: 18px">写文章</h4>
-                            </div>
                             <div class="card-body">
                                 <form id="save" method="post" class="needs-validation" novalidate>
                                     <div class="form-group">
-                                        <label>标题</label>
-                                        <input type="text" id="title" name="title" class="form-control" required>
+                                        <label for="title">标题</label>
+                                        <input type="text" id="title" name="title" class="form-control" value="${blog.title}" required>
                                         <div class="invalid-feedback">
                                             请填写标题
                                         </div>
@@ -153,7 +157,7 @@
                                         </span>
                                     </div>
                                     <div class="form-group">
-                                        <label>内容</label>
+                                        <label for="content">内容</label>
                                         <textarea id="content" class="summernote" name="content"></textarea>
                                     </div>
                                 </form>
@@ -184,15 +188,29 @@
 <script src="${pageContext.request.contextPath}/static/js/sa-functions.js"></script>
 <script src="${pageContext.request.contextPath}/static/modules/summernote/summernote-lite.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/scripts.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/wangEditor.min.js"></script>
+<script type="text/javascript">
+    // var E = window.wangEditor
+    // var editor = new E('#content')
+    // editor.create()
+    var objBlog = "<%=session.getAttribute("blog")%>";
+    var typeStr = objBlog.type;
+    switch (${blog.type}) {
+        case 0:
+            $("input:radio[value='note']").attr('checked', 'true');
+            break;
+        case 1:
+            $("input:radio[value='blog']").attr('checked', 'true');
+            break;
+        default:
+            break;
+    }
 
-<script>
+    document.getElementById("content").value = "${blog.content}";
+
     $("#submit").click(function () {
-        // var title = $("#title");
-        // var type = $("input[name='type']:checked").val();
-        // var content = $("#content");
-
         $.ajax({
-            url: "${pageContext.request.contextPath}/blog/addArticle.json",
+            url: "${pageContext.request.contextPath}/blog/editArticle.json?id=${blog.id}",
             type: "POST",
             dataType: "json",
             data: $("#save").serialize(),
@@ -205,5 +223,3 @@
         });
     });
 </script>
-</body>
-</html>

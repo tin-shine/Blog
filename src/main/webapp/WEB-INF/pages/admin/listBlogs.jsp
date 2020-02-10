@@ -1,12 +1,19 @@
-<%@page import="com.tinshine.blog.entity.UserEntity" %>
-<%@page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.tinshine.blog.entity.UserEntity" %><%--
+  Created by IntelliJ IDEA.
+  User: tinshine
+  Date: 2020/2/10
+  Time: 12:03
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
           name="viewport">
-    <title>新建随笔</title>
+    <title>所有随笔</title>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/modules/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/modules/ionicons/css/ionicons.min.css">
@@ -97,14 +104,14 @@
                     </li>
 
                     <li class="menu-header">功 能</li>
-                    <li class="active">
-                        <a href="#"><i class="ion ion-android-create"></i><span>新建随笔</span></a>
-                    </li>
                     <li>
+                        <a href="${pageContext.request.contextPath}/blog/NewArticle.action"><i class="ion ion-android-create"></i><span>新建随笔</span></a>
+                    </li>
+                    <li class="active">
                         <a href="#" class="has-dropdown"><i class="ion ion-pricetags"></i><span>博客分类</span></a>
                         <ul class="menu-dropdown">
-                            <li><a href="${pageContext.request.contextPath}/user/listBlogs.action"><i class="ion ion-ios-paperplane-outline"></i> 随笔</a></li>
-                            <li><a href="${pageContext.request.contextPath}/user/listBlogs.action"><i class="ion ion-android-bulb"></i> 技术博客</a></li>
+                            <li><a href="#"><i class="ion ion-ios-paperplane-outline"></i> 随笔</a></li>
+                            <li><a href="#"><i class="ion ion-android-bulb"></i> 技术博客</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -120,46 +127,54 @@
         <div class="main-content">
             <section class="section">
                 <h1 class="section-header">
-                    <div>新建随笔</div>
+                    <div>所有随笔</div>
                 </h1>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-12 col-sm-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 style="text-align: center; font-size: 18px">写文章</h4>
+                                <div class="float-right">
+                                    <a href="#" class="btn btn-primary">View All</a>
+                                </div>
+                                <h4>Latest Posts</h4>
                             </div>
                             <div class="card-body">
-                                <form id="save" method="post" class="needs-validation" novalidate>
-                                    <div class="form-group">
-                                        <label>标题</label>
-                                        <input type="text" id="title" name="title" class="form-control" required>
-                                        <div class="invalid-feedback">
-                                            请填写标题
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>分类</label>
-                                        <span class="radio" style="vertical-align: bottom">
-                                            <input type="radio" name="type" id="note" value="note" checked>
-                                            <label for="note">
-                                                随笔
-                                            </label>
-                                        </span>
-                                        <span class="radio" style="vertical-align: bottom">
-                                            <input type="radio" name="type" id="blog" value="blog">
-                                            <label for="blog">
-                                                 技术博客
-                                            </label>
-                                        </span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>内容</label>
-                                        <textarea id="content" class="summernote" name="content"></textarea>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="card-footer" style="text-align: center">
-                                <button type="button" id="submit" class="btn btn-primary">保 存</button>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>标题</th>
+                                            <th>创建时间</th>
+                                            <th>修改时间</th>
+                                            <th>操作</th>
+                                        </tr>
+                                        </thead>
+                                        <c:forEach items="${blogs}" var="blog">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    ${blog.title}
+                                                    <div class="table-links">
+                                                        in <a href="${pageContext.request.contextPath}/front/detail.action?id=${blog.id}">查看全文</a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    ${blog.releaseDate}
+                                                </td>
+                                                <td>
+                                                    ${blog.updateDate}
+                                                </td>
+                                                <td>
+                                                    <a href="${pageContext.request.contextPath}/user/editBlog.action?id=${blog.id}" class="btn btn-primary btn-action mr-1" data-toggle="tooltip"
+                                                       title="编辑"><i class="ion ion-edit"></i></a>
+                                                    <a href="${pageContext.request.contextPath}/user/deleteBlog.action?id=${blog.id}" class="btn btn-danger btn-action" data-toggle="tooltip"
+                                                       title="删除"><i class="ion ion-trash-b"></i></a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </c:forEach>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -184,26 +199,3 @@
 <script src="${pageContext.request.contextPath}/static/js/sa-functions.js"></script>
 <script src="${pageContext.request.contextPath}/static/modules/summernote/summernote-lite.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/scripts.js"></script>
-
-<script>
-    $("#submit").click(function () {
-        // var title = $("#title");
-        // var type = $("input[name='type']:checked").val();
-        // var content = $("#content");
-
-        $.ajax({
-            url: "${pageContext.request.contextPath}/blog/addArticle.json",
-            type: "POST",
-            dataType: "json",
-            data: $("#save").serialize(),
-            success: function (rtn) {
-                alert("保存成功!");
-            },
-            error: function (rtn) {
-                alert("提交失败！");
-            }
-        });
-    });
-</script>
-</body>
-</html>
