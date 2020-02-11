@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/style.css">
     <link href="${pageContext.request.contextPath}/static/modules/bootstrap/css/awesome-bootstrap-checkbox.css"
           rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/toastr.css">
 </head>
 
 <body>
@@ -189,10 +190,8 @@
 <script src="${pageContext.request.contextPath}/static/modules/summernote/summernote-lite.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/scripts.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/wangEditor.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/toastr.js"></script>
 <script type="text/javascript">
-    // var E = window.wangEditor
-    // var editor = new E('#content')
-    // editor.create()
     var objBlog = "<%=session.getAttribute("blog")%>";
     var typeStr = objBlog.type;
     switch (${blog.type}) {
@@ -215,10 +214,13 @@
             dataType: "json",
             data: $("#save").serialize(),
             success: function (rtn) {
-                alert("保存成功!");
+                toastr.success("修改成功");
+                setTimeout(function () {
+                    window.location.href = "${pageContext.request.contextPath}/user/listBlogs.action";
+                }, 1800);
             },
             error: function (rtn) {
-                alert("提交失败！");
+                alert("修改失败！");
             }
         });
     });

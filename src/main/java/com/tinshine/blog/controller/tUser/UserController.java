@@ -91,6 +91,9 @@ public class UserController {
     @RequestMapping("editBlog.action")
     public String editBlog(HttpServletRequest request, @RequestParam(value = "id") int id) {
         BlogEntity blog = blogService.getBlogById(id);
+        if (blog == null) {
+            return mainPanel(request);
+        }
         request.getSession().setAttribute("blog", blog);
         return "/admin/editBlog";
     }

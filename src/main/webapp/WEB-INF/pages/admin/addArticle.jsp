@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/style.css">
     <link href="${pageContext.request.contextPath}/static/modules/bootstrap/css/awesome-bootstrap-checkbox.css"
           rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/toastr.css">
 </head>
 
 <body>
@@ -184,23 +185,22 @@
 <script src="${pageContext.request.contextPath}/static/js/sa-functions.js"></script>
 <script src="${pageContext.request.contextPath}/static/modules/summernote/summernote-lite.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/scripts.js"></script>
-
+<script src="${pageContext.request.contextPath}/static/js/toastr.js"></script>
 <script>
     $("#submit").click(function () {
-        // var title = $("#title");
-        // var type = $("input[name='type']:checked").val();
-        // var content = $("#content");
-
         $.ajax({
             url: "${pageContext.request.contextPath}/blog/addArticle.json",
             type: "POST",
             dataType: "json",
             data: $("#save").serialize(),
             success: function (rtn) {
-                alert("保存成功!");
+                toastr.success("保存成功");
+                setTimeout(function () {
+                    window.location.href = "${pageContext.request.contextPath}/user/listBlogs.action";
+                }, 1800);
             },
             error: function (rtn) {
-                alert("提交失败！");
+                toastr.error("保存失败");
             }
         });
     });

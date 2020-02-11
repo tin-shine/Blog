@@ -129,13 +129,13 @@
                                 <li style="color: #ff332c"><i class="ion ion-flame"></i> ${blog.click}</li>
                             </ul>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" style="text-align: justify">
                             <div>
                                 ${blog.content}
                             </div> <!-- end entry-primary -->
                         </div>
                         <div id="info" class="card-footer" style="text-align: right">
-                            footer
+                            <a href="${pageContext.request.contextPath}/user/editBlog.action?id=${blog.id}">编辑</a>
                         </div>
                     </div>
                     <article style="color: #151515">
