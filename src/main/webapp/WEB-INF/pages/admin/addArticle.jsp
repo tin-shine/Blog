@@ -154,8 +154,12 @@
                                         </span>
                                     </div>
                                     <div class="form-group">
-                                        <label>内容</label>
-                                        <textarea id="content" class="summernote" name="content"></textarea>
+                                        <label for="summary">摘要</label>
+                                        <textarea id="summary" class="form-control" name="summary" rows="3"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="content">内容</label>
+                                        <textarea id="content" class="form-control" name="content" rows="20"></textarea>
                                     </div>
                                 </form>
                             </div>

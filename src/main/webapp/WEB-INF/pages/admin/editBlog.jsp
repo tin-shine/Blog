@@ -1,3 +1,4 @@
+<%--@elvariable id="blog" type="com.tinshine.blog.entity.BlogEntity"--%>
 <%--<jsp:useBean id="blog" scope="request" type="com.tinshine.blog.entity.BlogEntity"/>--%>
 <%@ page import="com.tinshine.blog.entity.UserEntity" %><%--
   Created by IntelliJ IDEA.
@@ -158,8 +159,13 @@
                                         </span>
                                     </div>
                                     <div class="form-group">
+                                        <label for="summary">摘要</label>
+                                        <textarea id="summary" class="form-control" name="summary" rows="3">${blog.summary}</textarea>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="content">内容</label>
-                                        <textarea id="content" class="summernote" name="content"></textarea>
+<%--                                        <textarea id="content" class="summernote" name="content"></textarea>--%>
+                                        <textarea name="content" id="content" class="form-control" rows="20">${blog.content}</textarea>
                                     </div>
                                 </form>
                             </div>
@@ -205,9 +211,10 @@
             break;
     }
 
-    document.getElementById("content").value = "${blog.content}";
+    <%--document.getElementById("content").value = "${blog.content}";--%>
 
     $("#submit").click(function () {
+        // console.log($("#save").serialize());
         $.ajax({
             url: "${pageContext.request.contextPath}/blog/editArticle.json?id=${blog.id}",
             type: "POST",
@@ -217,10 +224,10 @@
                 toastr.success("修改成功");
                 setTimeout(function () {
                     window.location.href = "${pageContext.request.contextPath}/user/listBlogs.action";
-                }, 1800);
+                }, 1500);
             },
             error: function (rtn) {
-                alert("修改失败！");
+                toastr.error("修改失败");
             }
         });
     });

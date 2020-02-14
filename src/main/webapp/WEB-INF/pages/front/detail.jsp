@@ -13,6 +13,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="referrer" content="never">
 
     <title>Blog Tinshine</title>
 
@@ -44,7 +45,7 @@
 <!-- Header Area wrapper Starts -->
 <header id="header-wrap">
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg fixed-top indigo">
+    <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -130,17 +131,14 @@
                             </ul>
                         </div>
                         <div class="card-body" style="text-align: justify">
-                            <div>
+                            <article style="color: #151515">
                                 ${blog.content}
-                            </div> <!-- end entry-primary -->
+                            </article>
                         </div>
                         <div id="info" class="card-footer" style="text-align: right">
                             <a href="${pageContext.request.contextPath}/user/editBlog.action?id=${blog.id}">编辑</a>
                         </div>
                     </div>
-                    <article style="color: #151515">
-
-                    </article>
                 </div>
             </div>
         </div>

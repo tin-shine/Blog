@@ -2,9 +2,9 @@ package com.tinshine.blog.controller.tUser;
 
 import com.tinshine.blog.entity.BlogEntity;
 import com.tinshine.blog.entity.ReturnEntity;
+import com.tinshine.blog.entity.UserEntity;
 import com.tinshine.blog.service.tBlog.BlogServiceImpl;
 import com.tinshine.blog.service.tUser.UserServiceImpl;
-import com.tinshine.blog.entity.UserEntity;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,6 +36,9 @@ public class UserController {
 
     @RequestMapping("main.action")
     public String mainPanel (HttpServletRequest request) {
+        if (request.getSession().getAttribute("editFlag") != null) {
+            return editBlog(request, (int) request.getSession().getAttribute("editId"));
+        }
         return "/admin/main";
     }
 

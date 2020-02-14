@@ -1,5 +1,6 @@
 package com.tinshine.blog.controller.front;
 
+import com.tinshine.MarkdownTranslator.MainCompiler;
 import com.tinshine.blog.entity.BlogEntity;
 import com.tinshine.blog.service.tBlog.BlogServiceImpl;
 import org.apache.log4j.Logger;
@@ -37,6 +38,8 @@ public class FrontController {
     @RequestMapping("detail.action")
     public String showDetail(ModelMap map, @RequestParam(value = "id") int id) {
         BlogEntity blogDetail = blogService.getBlogById(id);
+        String content = new MainCompiler().transform(blogDetail.getContent());
+        blogDetail.setContent(content);
         map.put("blog", blogDetail);
         return "/front/detail";
     }

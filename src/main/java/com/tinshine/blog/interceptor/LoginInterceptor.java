@@ -31,6 +31,14 @@ public class LoginInterceptor implements HandlerInterceptor {
                 return false;
             }
         }
+        if (url.contains("editBlog.action")) {
+            if (request.getSession().getAttribute("userFound") != null) {
+                return true;
+            } else {
+                request.getRequestDispatcher("/WEB-INF/pages/admin/login.jsp").forward(request, response);
+                return false;
+            }
+        }
         logger.debug("url: [" + url + "] 放行");
         return true;
     }

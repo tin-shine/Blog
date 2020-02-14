@@ -17,7 +17,7 @@ import java.util.Date;
 @RequestMapping("blog")
 public class BlogController {
 
-    private static final int SUMMARY_LENGTH = 100;
+    public static final int SUMMARY_LENGTH = 100;
     private Logger logger = Logger.getLogger(this.getClass());
 
     @Autowired
@@ -46,19 +46,22 @@ public class BlogController {
                 break;
         }
         String content = request.getParameter("content");
-        String summary = getSummary(content, SUMMARY_LENGTH) + "......";
+        String summary = request.getParameter("summary");
+        if (summary == null) {
+            summary = BlogController.getSummary(content) + "......";
+        }
         String releaseDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(new Date());
         blogService.addArticle(title, content, summary, releaseDate, typeID);
         return ReturnEntity.success();
     }
 
-    private String getSummary(String content, int summaryLen) {
+    public static String getSummary(String content) {
         int i = 0;
-        String summary = "";
-        while (i < content.length() && i <= summaryLen) {
-            summary += content.charAt(i++);
+        StringBuilder summary = new StringBuilder();
+        while (i < content.length() && i <= BlogController.SUMMARY_LENGTH) {
+            summary.append(content.charAt(i++));
         }
-        return summary;
+        return summary.toString();
     }
 
     @RequestMapping("editArticle.json")
@@ -66,7 +69,10 @@ public class BlogController {
     public ReturnEntity editArticle(@RequestParam(value = "id") int id, HttpServletRequest request) {
         String title = request.getParameter("title");
         String content = request.getParameter("content");
-        String summary = getSummary(content, SUMMARY_LENGTH) + "......";
+        String summary = request.getParameter("summary");
+        if (summary == null) {
+            summary = BlogController.getSummary(content) + "......";
+        }
         String updateDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(new Date());
         blogService.updateArticle(title, content, summary, updateDate, id);
         return ReturnEntity.success();
