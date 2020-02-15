@@ -66,7 +66,7 @@
             <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="navbar-nav mr-auto w-100 justify-content-left clearfix">
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/front/articles.action">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/front/articles.action?pageCount=1">
                             文章
                         </a>
                     </li>
@@ -87,7 +87,7 @@
         <!-- Mobile Menu Start -->
         <ul class="mobile-menu navbar-nav">
             <li>
-                <a class="page-scroll" href="${pageContext.request.contextPath}/front/articles.action">
+                <a class="page-scroll" href="${pageContext.request.contextPath}/front/articles.action?pageCount=1">
                     文章
                 </a>
             </li>

@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class FrontController {
     private BlogServiceImpl blogService;
 
     private Logger logger = Logger.getLogger(this.getClass());
+    public final int PAGE_CAPACITY = 8;
 
     @RequestMapping("index.action")
     public String index() {
@@ -28,10 +30,31 @@ public class FrontController {
     }
 
     @RequestMapping("articles.action")
-    public String article(ModelMap map) {
+    public String article(HttpServletRequest request, ModelMap map, @RequestParam(value = "pageCount") int pageCnt) {
         List<BlogEntity> blogs = blogService.listBlogs();
-        logger.debug("查询到的文章数：" + blogs.size());
-        map.put("blogs", blogs);
+        int blogsNum = blogs.size();
+        int maxPageNum = blogsNum % PAGE_CAPACITY == 0 ? blogsNum / PAGE_CAPACITY : blogsNum / PAGE_CAPACITY + 1;
+        logger.info("查询到的文章数：" + blogsNum);
+        if (pageCnt > maxPageNum || pageCnt == -1) {
+            pageCnt = maxPageNum;
+        }
+        List<BlogEntity> blogsDivision = new ArrayList<>();
+        for (int i = (pageCnt - 1) * PAGE_CAPACITY; i < pageCnt * PAGE_CAPACITY && i < blogsNum; i++) {
+            blogsDivision.add(blogs.get(i));
+        }
+        String pagePosition = "mid";
+        if (pageCnt == 1 && pageCnt == maxPageNum) {
+            pagePosition = "first-only";
+        } else if (pageCnt == 1) {
+            pagePosition = "first";
+        } else if (pageCnt == maxPageNum) {
+            pagePosition = "last";
+        }
+        logger.info("第" + pageCnt + "页展示文章数：" + blogsDivision.size());
+        logger.info("page位置：" + pagePosition);
+        request.getSession().setAttribute("pagePosition", pagePosition);
+        request.getSession().setAttribute("pageCount", pageCnt);
+        map.put("blogs", blogsDivision);
         return "/front/article";
     }
 

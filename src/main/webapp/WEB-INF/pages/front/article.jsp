@@ -62,7 +62,7 @@
             <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="navbar-nav mr-auto w-100 justify-content-left clearfix">
                     <li class="nav-item active">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/front/articles.action">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/front/articles.action?pageCount=1">
                             文章
                         </a>
                     </li>
@@ -83,7 +83,7 @@
         <!-- Mobile Menu Start -->
         <ul class="mobile-menu navbar-nav">
             <li>
-                <a class="page-scroll" href="${pageContext.request.contextPath}/front/articles.action">
+                <a class="page-scroll" href="${pageContext.request.contextPath}/front/articles.action?pageCount=1">
                     文章
                 </a>
             </li>
@@ -110,7 +110,7 @@
 
 </header>
 <!-- Header Area wrapper End -->
-<section class="section-padding" style="min-height: 450px; margin-top: 50px">
+<section class="section-padding" style="min-height: 450px; margin-top: 25px">
     <div class="container">
         <div class="row">
             <c:forEach items="${blogs}" var="blog">
@@ -134,28 +134,32 @@
             </c:forEach>
         </div>
     </div>
-        <div style="display: table; margin: 0 auto">
+        <div style="display: table; margin: 50px auto">
             <nav aria-label="Page navigation example">
                 <ul class="pagination" style="font-size: 18px">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" aria-label="Previous">
+                    <li class="page-item">
+                        <a class="page-link" href="${pageContext.request.contextPath}/front/articles.action?pageCount=1" aria-label="Previous" id="firstPage">
                             <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
                         </a>
                     </li>
+                    <li class="page-item">
+                        <a class="page-link" id="preDots" href="${pageContext.request.contextPath}/front/articles.action?pageCount=${pageCount-1}">&lt;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" id="prePage" href="${pageContext.request.contextPath}/front/articles.action?pageCount=${pageCount-1}">${pageCount-1}</a>
+                    </li>
                     <li class="page-item active">
-                        <a class="page-link" href="#">1</a>
+                        <a class="page-link" id="currentPage" href="#">${pageCount}</a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="#">2</a>
+                        <a class="page-link" id="nextPage" href="${pageContext.request.contextPath}/front/articles.action?pageCount=${pageCount+1}">${pageCount+1}</a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="#">3</a>
+                        <a class="page-link" id="nextDots" href="${pageContext.request.contextPath}/front/articles.action?pageCount=${pageCount+1}">&gt;</a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
+                        <a class="page-link" href="${pageContext.request.contextPath}/front/articles.action?pageCount=-1" aria-label="Next" id="lastPage">
                             <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">Next</span>
                         </a>
                     </li>
                 </ul>
@@ -163,13 +167,9 @@
         </div>
 </section>
 
-<!-- Footer Section Start -->
 <footer id="footer" class="main-footer" style="background: #34363a;">
     Nice to meet you
 </footer>
-<!-- Footer Section End -->
-
-<!-- Go to Top Link -->
 <a href="#" class="back-to-top">
     <i class="lni-arrow-up"></i>
 </a>
@@ -194,8 +194,35 @@
 <script src="${pageContext.request.contextPath}/static/js/main.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/form-validator.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/contact-form-script.min.js"></script>
+<script>
+    var pageCnt = ${pageCount};
+    var pagePosition = "${pagePosition}";
 
+    function hidePre() {
+        $("#prePage").css('display', 'none');
+        $("#preDots").css('pointer-events', 'none');
+    }
 
+    function hideNext() {
+        $("#nextDots").css('pointer-events', 'none');
+        $("#nextPage").css('display', 'none');
+    }
 
+    if (pagePosition == "first") {
+        console.log("pagePosition: " + pagePosition);
+        console.log("pageCount: " + pageCnt);
+        hidePre();
+    } else if (pagePosition == "last") {
+        hideNext();
+    } else if (pagePosition == "first-only") {
+        hidePre();
+        hideNext();
+    } else {
+        $("#preDots").css('pointer-events', 'auto');
+        $("#prePage").css('display', 'block');
+        $("#nextDots").css('pointer-events', 'auto');
+        $("#nextPage").css('display', 'block');
+    }
+</script>
 </body>
 </html>
