@@ -31,7 +31,7 @@
     <insert id="addArticle">
         INSERT
         INTO t_blog
-        VALUES (null, #{title}, #{summary}, #{releaseDate}, #{releaseDate}, #{content}, null, null, #{type}, null);
+        VALUES (null, #{title}, #{summary}, #{releaseDate}, #{releaseDate}, #{content}, #{clickCnt}, #{replyCnt}, #{type}, #{keyword});
     </insert>
 
     <update id="updateArticle">
@@ -44,4 +44,10 @@
         delete from t_blog
         where id = #{id};
     </delete>
+
+    <update id="onClick">
+        update t_blog
+        set clickCount = clickCount + 1
+        where id = #{id};
+    </update>
 </mapper>

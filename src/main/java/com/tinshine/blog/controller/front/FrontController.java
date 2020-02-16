@@ -34,7 +34,6 @@ public class FrontController {
         List<BlogEntity> blogs = blogService.listBlogs();
         int blogsNum = blogs.size();
         int maxPageNum = blogsNum % PAGE_CAPACITY == 0 ? blogsNum / PAGE_CAPACITY : blogsNum / PAGE_CAPACITY + 1;
-        logger.info("查询到的文章数：" + blogsNum);
         if (pageCnt > maxPageNum || pageCnt == -1) {
             pageCnt = maxPageNum;
         }
@@ -50,8 +49,6 @@ public class FrontController {
         } else if (pageCnt == maxPageNum) {
             pagePosition = "last";
         }
-        logger.info("第" + pageCnt + "页展示文章数：" + blogsDivision.size());
-        logger.info("page位置：" + pagePosition);
         request.getSession().setAttribute("pagePosition", pagePosition);
         request.getSession().setAttribute("pageCount", pageCnt);
         map.put("blogs", blogsDivision);
@@ -60,6 +57,7 @@ public class FrontController {
 
     @RequestMapping("detail.action")
     public String showDetail(ModelMap map, @RequestParam(value = "id") int id) {
+        blogService.onClick(id);
         BlogEntity blogDetail = blogService.getBlogById(id);
         String content = new MainCompiler().transform(blogDetail.getContent());
         blogDetail.setContent(content);

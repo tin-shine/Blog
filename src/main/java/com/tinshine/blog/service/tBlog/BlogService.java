@@ -12,4 +12,5 @@ public interface BlogService {
     BlogEntity getBlogById(int id);
     boolean updateArticle(String title, String content, String summary, String updateDate, int id);
     boolean deleteBlogById(int id);
+    boolean onClick(int id);
 }

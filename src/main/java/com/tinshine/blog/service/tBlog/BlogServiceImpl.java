@@ -2,6 +2,7 @@ package com.tinshine.blog.service.tBlog;
 
 import com.tinshine.blog.dao.tBlog.IBlogDao;
 import com.tinshine.blog.entity.BlogEntity;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public boolean addArticle(String title, String content, String summary, String releaseDate, int type) {
-        return iBlogDao.addArticle(title, content, summary, releaseDate, type);
+        return iBlogDao.addArticle(title, summary, releaseDate, content, 0, 0, type, null);
     }
 
     @Override
@@ -36,5 +37,10 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public boolean deleteBlogById(int id) {
         return iBlogDao.deleteBlogById(id);
+    }
+
+    @Override
+    public boolean onClick(int id) {
+        return iBlogDao.onClick(id);
     }
 }
