@@ -59,15 +59,7 @@
                                         <div id="invalid-confirm" class="invalid-feedback">请再次输入密码</div>
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" name="agree" class="custom-control-input" id="agree">
-                                        <label class="custom-control-label" for="agree" style="font-size: 15px">我同意用户条款</label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
+                                <div class="form-group" style="margin-top: 30px">
                                     <button id="submit" type="button" class="btn btn-primary btn-block">注 册</button>
                                     <div id="invalid-post" class="invalid-feedback" style="text-align: center; margin-top: 20px"></div>
                                 </div>

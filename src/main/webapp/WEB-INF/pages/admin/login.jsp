@@ -39,15 +39,9 @@
                                     <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
                                     <div id="invalid-pswd" class="invalid-feedback">请输入密码</div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
-                                        <label class="custom-control-label" for="remember-me">记住我</label>
-                                    </div>
-                                </div>
                             </form>
                             <%--                            <div class="form-group">--%>
-                            <button type="button" id="submit" class="btn btn-primary btn-block" tabindex="4">
+                            <button type="button" id="submit" class="btn btn-primary btn-block" tabindex="4" style="margin-top: 35px">
                                 Login
                             </button>
                             <div id="invalid-post" class="invalid-feedback" style="text-align: center; margin-top: 20px"></div>
