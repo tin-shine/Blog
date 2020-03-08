@@ -15,9 +15,10 @@
         </div>
     </form>
     <ul class="navbar-nav navbar-right">
-        <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
-                                                     class="nav-link notification-toggle nav-link-lg beep"><i
-                class="ion ion-ios-bell-outline"></i></a>
+        <li class="dropdown dropdown-list-toggle">
+            <a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep">
+                <i class="ion ion-ios-bell-outline"></i>
+            </a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right">
                 <div class="dropdown-header">通知
                     <div class="float-right">
