@@ -36,7 +36,7 @@
 
     <update id="updateArticle">
         update t_blog
-        set title = #{title}, content = #{content}, summary = #{summary}, updateDate = #{updateDate}
+        set title = #{title}, content = #{content}, summary = #{summary}, updateDate = #{updateDate}, keyWord = #{keyword}
         where id = #{id};
     </update>
 
@@ -50,4 +50,15 @@
         set clickCount = clickCount + 1
         where id = #{id};
     </update>
+
+    <select id="listTags" resultType="String">
+        select keyWord
+        from t_blog;
+    </select>
+
+    <select id="listByTag" resultMap="blogs">
+        select *
+        from t_blog
+        where keyWord = #{tag};
+    </select>
 </mapper>

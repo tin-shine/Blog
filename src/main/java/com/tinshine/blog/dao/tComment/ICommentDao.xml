@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.tinshine.blog.dao.tComment.ICommentDao">
+    <resultMap id="comments" type="com.tinshine.blog.entity.CommentEntity">
+        <result column="id" property="id"/>
+        <result column="targetIP" property="targetIP"/>
+        <result column="blogID" property="blogId"/>
+        <result column="comment" property="comment"/>
+        <result column="commentDate" property="commentDate"/>
+        <result column="state" property="state"/>
+    </resultMap>
+
+    <insert id="addComment">
+        insert into t_Comment
+        values (null, #{targetIP}, #{blogId}, #{comment}, #{commentDate}, #{state});
+    </insert>
+
+    <select id="listByBlogId" resultMap="comments">
+        select *
+        from t_Comment
+        where blogID = #{id} and state = 1;
+    </select>
+</mapper>

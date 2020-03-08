@@ -7,10 +7,14 @@ import java.util.List;
 
 @Service
 public interface BlogService {
-    boolean addArticle(String title, String content, String summary, String releaseDate, int type);
+    boolean addArticle(String title, String content, String summary, String releaseDate, int type, String keyword);
     List<BlogEntity> listBlogs();
     BlogEntity getBlogById(int id);
-    boolean updateArticle(String title, String content, String summary, String updateDate, int id);
+    boolean updateArticle(String title, String content, String summary, String updateDate, int id, String keyword);
     boolean deleteBlogById(int id);
     boolean onClick(int id);
+
+    List<String> listTags();
+
+    List<BlogEntity> listBlogsByTag(String tag);
 }

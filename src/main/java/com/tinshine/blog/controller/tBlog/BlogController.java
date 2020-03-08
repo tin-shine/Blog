@@ -51,7 +51,8 @@ public class BlogController {
             summary = BlogController.getSummary(content) + "......";
         }
         String releaseDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(new Date());
-        blogService.addArticle(title, content, summary, releaseDate, typeID);
+        String keyword = request.getParameter("keyword");
+        blogService.addArticle(title, content, summary, releaseDate, typeID, keyword);
         return ReturnEntity.success();
     }
 
@@ -74,7 +75,8 @@ public class BlogController {
             summary = BlogController.getSummary(content) + "......";
         }
         String updateDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(new Date());
-        blogService.updateArticle(title, content, summary, updateDate, id);
+        String keyword = request.getParameter("keyword");
+        blogService.updateArticle(title, content, summary, updateDate, id, keyword);
         return ReturnEntity.success();
     }
 }

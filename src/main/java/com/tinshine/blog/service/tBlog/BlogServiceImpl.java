@@ -2,7 +2,6 @@ package com.tinshine.blog.service.tBlog;
 
 import com.tinshine.blog.dao.tBlog.IBlogDao;
 import com.tinshine.blog.entity.BlogEntity;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +14,8 @@ public class BlogServiceImpl implements BlogService {
     public IBlogDao iBlogDao;
 
     @Override
-    public boolean addArticle(String title, String content, String summary, String releaseDate, int type) {
-        return iBlogDao.addArticle(title, summary, releaseDate, content, 0, 0, type, null);
+    public boolean addArticle(String title, String content, String summary, String releaseDate, int type, String keyword) {
+        return iBlogDao.addArticle(title, summary, releaseDate, content, 0, 0, type, keyword);
     }
 
     @Override
@@ -30,8 +29,8 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public boolean updateArticle(String title, String content, String summary, String updateDate, int id) {
-        return iBlogDao.updateArticle(title, content, summary, updateDate, id);
+    public boolean updateArticle(String title, String content, String summary, String updateDate, int id, String keyword) {
+        return iBlogDao.updateArticle(title, content, summary, updateDate, id, keyword);
     }
 
     @Override
@@ -42,5 +41,15 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public boolean onClick(int id) {
         return iBlogDao.onClick(id);
+    }
+
+    @Override
+    public List<String> listTags() {
+        return iBlogDao.listTags();
+    }
+
+    @Override
+    public List<BlogEntity> listBlogsByTag(String tag) {
+        return iBlogDao.listByTag(tag);
     }
 }

@@ -2,16 +2,23 @@ package com.tinshine.blog.controller.front;
 
 import com.tinshine.MarkdownTranslator.MainCompiler;
 import com.tinshine.blog.entity.BlogEntity;
+import com.tinshine.blog.entity.CommentEntity;
 import com.tinshine.blog.service.tBlog.BlogServiceImpl;
+import com.tinshine.blog.service.tComment.CommentService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -20,6 +27,9 @@ public class FrontController {
 
     @Autowired
     private BlogServiceImpl blogService;
+
+    @Autowired
+    CommentService commentService;
 
     private Logger logger = Logger.getLogger(this.getClass());
     public final int PAGE_CAPACITY = 8;
@@ -30,8 +40,14 @@ public class FrontController {
     }
 
     @RequestMapping("articles.action")
-    public String article(HttpServletRequest request, ModelMap map, @RequestParam(value = "pageCount") int pageCnt) {
+    public String article(HttpSession session, ModelMap map, @RequestParam(value = "pageCount") int pageCnt) {
         List<BlogEntity> blogs = blogService.listBlogs();
+        List<BlogEntity> blogsDivision = currentPage(blogs, pageCnt, session);
+        map.put("blogs", blogsDivision);
+        return "/front/article";
+    }
+
+    public List<BlogEntity> currentPage(List<BlogEntity> blogs, int pageCnt, HttpSession session) {
         int blogsNum = blogs.size();
         int maxPageNum = blogsNum % PAGE_CAPACITY == 0 ? blogsNum / PAGE_CAPACITY : blogsNum / PAGE_CAPACITY + 1;
         if (pageCnt > maxPageNum || pageCnt == -1) {
@@ -49,10 +65,9 @@ public class FrontController {
         } else if (pageCnt == maxPageNum) {
             pagePosition = "last";
         }
-        request.getSession().setAttribute("pagePosition", pagePosition);
-        request.getSession().setAttribute("pageCount", pageCnt);
-        map.put("blogs", blogsDivision);
-        return "/front/article";
+        session.setAttribute("pagePosition", pagePosition);
+        session.setAttribute("pageCount", pageCnt);
+        return blogsDivision;
     }
 
     @RequestMapping("detail.action")
@@ -62,6 +77,12 @@ public class FrontController {
         String content = new MainCompiler().transform(blogDetail.getContent());
         blogDetail.setContent(content);
         map.put("blog", blogDetail);
+        List<CommentEntity> comments = commentService.listByBlogId(id);
+        for (CommentEntity comment : comments) {
+            int randomNumber = (int) (Math.random() * 10000);
+            comment.setName(comment.getTargetIP() + randomNumber);
+        }
+        map.put("comments", comments);
         return "/front/detail";
     }
 
@@ -75,5 +96,32 @@ public class FrontController {
         int num = (int) (Math.random() * blogsId.size());
         int id = blogsId.get(num);
         return showDetail(map, id);
+    }
+
+    @RequestMapping("review.action")
+    @ResponseBody
+    public String review(String review, int blogId) {
+        commentService.addComment("", blogId, review, new SimpleDateFormat("YYMMdd").format(new Date()), 1);
+        return "success";
+    }
+
+    @RequestMapping("about.action")
+    public String about() {
+        return "/front/aboutMe";
+    }
+
+    @RequestMapping("tag.action")
+    public String tag(Model map) {
+        List<String> tags = blogService.listTags();
+        logger.info("tags: " + tags.get(0));
+        map.addAttribute("tags", tags);
+        return "/front/tags";
+    }
+
+    @RequestMapping("searchTag.action")
+    public String searchTag(String tag, Model map, HttpSession session) {
+        List<BlogEntity> blogs = blogService.listBlogsByTag(tag);
+        map.addAttribute("blogs", currentPage(blogs, 1, session));
+        return "/front/article";
     }
 }
