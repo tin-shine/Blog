@@ -53,14 +53,14 @@
     </update>
 
     <select id="listTags" resultType="String">
-        select keyWord
+        select distinct keyWord
         from t_blog;
     </select>
 
     <select id="listByTag" resultMap="blogs">
         select *
         from t_blog
-        where keyWord = #{tag};
+        where keyWord = #{tag}
         order by releaseDate desc;
     </select>
 </mapper>

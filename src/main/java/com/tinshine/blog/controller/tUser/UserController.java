@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -30,7 +31,9 @@ public class UserController {
     private UserServiceImpl userService;
 
     @RequestMapping("/index.action") // 默认首页跳转到登录界面
-    public String index () {
+    public String index (HttpSession session) {
+        if (session.getAttribute("userFound") != null)
+            return "/admin/main";
         return "/admin/login";
     }
 
