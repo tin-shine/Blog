@@ -7,8 +7,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Blog Tinshine</title>
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/static/img/head2.png">
 
+    <title>Blog Tinshine</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/modules/bootstrap/css/bootstrap.min.css" >
     <!-- Icon -->
@@ -47,8 +48,9 @@
                     <span class="icon-menu"></span>
                 </button>
                 <a href="${pageContext.request.contextPath}/front/index.action" class="navbar-brand" style="margin-top: 10px; margin-bottom: 10px">
-                    <span style="margin: 5px 0px; font-size: 28px">
-                        <i class="ion ion-home"></i>Home
+                    <span style="margin: 5px 0px; font-size: 28px; height: 30px; width: 50px">
+<%--                        <i class="ion ion-home"></i>--%>
+                        <img src="${pageContext.request.contextPath}/static/img/head3.png" style="width: 40px"> Home
                     </span>
                 </a>
             </div>

@@ -31,7 +31,6 @@ public class BlogController {
     @RequestMapping("addArticle.json")
     @ResponseBody
     public ReturnEntity addArticle(HttpServletRequest request) {
-        logger.info("开始提交文章数据");
         String title = request.getParameter("title");
         String type = request.getParameter("type");
         int typeID = 0;
@@ -47,7 +46,7 @@ public class BlogController {
         }
         String content = request.getParameter("content");
         String summary = request.getParameter("summary");
-        if (summary == null) {
+        if (summary == null || summary.equals("")) {
             summary = BlogController.getSummary(content) + "......";
         }
         String releaseDate = new SimpleDateFormat("yyyy-MM-dd hh:mm").format(new Date());

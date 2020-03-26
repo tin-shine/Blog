@@ -1065,30 +1065,6 @@ div.dataTables_wrapper div.dataTables_processing {
 }
 /*end summary*/
 
-/*browser*/
-.browser {
-	display: inline-block;
-	width: 60px;
-	height: 60px;
-	background-size: 100%;
-}
-.browser.browser-chrome {
-	background-image: url('../img/browsers/chrome.png');
-}
-.browser.browser-firefox {
-	background-image: url('../img/browsers/firefox.png');
-}
-.browser.browser-internet-explorer {
-	background-image: url('../img/browsers/internet-explorer.png');
-}
-.browser.browser-opera {
-	background-image: url('../img/browsers/opera.png');
-}
-.browser.browser-safari {
-	background-image: url('../img/browsers/safari.png');
-}
-/*end browser*/
-
 /*fullcalendar*/
 .fc-toolbar h2 {
 	font-size: 16px;

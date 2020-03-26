@@ -43,8 +43,8 @@
             </div>
         </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="#" class="dropdown-item has-icon">
-                    <i class="ion ion-android-person"></i> Profile
+                <a href="${pageContext.request.contextPath}/front/index.action" class="dropdown-item has-icon">
+                    <i class="ion ion-android-person"></i> 主页
                 </a>
                 <a href="${pageContext.request.contextPath}/user/logout.action" class="dropdown-item has-icon">
                     <i class="ion ion-log-out"></i> 注销

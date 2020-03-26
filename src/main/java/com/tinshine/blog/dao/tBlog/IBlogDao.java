@@ -8,7 +8,7 @@ import java.util.List;
 public interface IBlogDao {
     boolean addArticle(@Param("title") String title, @Param("summary") String summary,
                        @Param("releaseDate") String releaseDate, @Param("content") String content,
-                       @Param("clickCount") int clickCnt, @Param("clickCount") int replyCnt,
+                       @Param("clickCnt") int clickCnt, @Param("replyCnt") int replyCnt,
                        @Param("type") int type, @Param("keyword") String keyword);
     List<BlogEntity> listBlogs();
     BlogEntity getBlogById(@Param("id") int id);

@@ -19,13 +19,14 @@
     <select id="listBlogs" resultMap="blogs">
         select *
         from t_blog
-        order by releaseDate;
+        order by releaseDate desc;
     </select>
 
     <select id="getBlogById" resultMap="blogs">
         select *
         from t_blog
         where id = #{id}
+        order by releaseDate desc;
     </select>
 
     <insert id="addArticle">
@@ -60,5 +61,6 @@
         select *
         from t_blog
         where keyWord = #{tag};
+        order by releaseDate desc;
     </select>
 </mapper>
