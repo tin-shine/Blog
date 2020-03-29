@@ -9,7 +9,7 @@
 
 <%@include file="../include/front/header.jsp"%>
 
-<section class="section-padding" style="min-height: 450px">
+<section class="section-padding" style="min-height: 550px">
     <div class="container" style="margin-top: 50px; margin-bottom: 50px">
         <div class="contents text-center">
             <div class="active" data-tab-group="carousel" id="carousel-simple">
