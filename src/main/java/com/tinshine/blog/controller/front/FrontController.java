@@ -1,10 +1,10 @@
 package com.tinshine.blog.controller.front;
 
-import com.tinshine.MarkdownTranslator.MainCompiler;
 import com.tinshine.blog.entity.BlogEntity;
 import com.tinshine.blog.entity.CommentEntity;
 import com.tinshine.blog.service.tBlog.BlogServiceImpl;
 import com.tinshine.blog.service.tComment.CommentService;
+import com.tinshine.mkd2html.MainCompiler;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

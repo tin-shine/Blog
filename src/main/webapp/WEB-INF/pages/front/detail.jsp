@@ -18,6 +18,7 @@
                 <div class="contents text-left">
                     <div class="card">
                         <div class="card-header">
+                            <div class="detail-title">
                             <h1>${blog.title}</h1>
                             <ul>
                                 <li style="color: #3d3fff"><i class="ion ion-clipboard"></i> ${blog.releaseDate}</li>
@@ -26,11 +27,14 @@
                                 <li>|</li>
                                 <li style="color: #ff332c"><i class="ion ion-flame"></i> ${blog.click}</li>
                             </ul>
+                            </div>
                         </div>
-                        <div class="card-body" style="text-align: justify">
-                            <article style="color: #151515">
-                                ${blog.content}
-                            </article>
+                        <div class="card-body">
+                            <div class="article-body">
+                                <article>
+                                    ${blog.content}
+                                </article>
+                            </div>
                         </div>
                         <div id="info" class="card-footer" style="text-align: right">
                             <a href="${pageContext.request.contextPath}/user/editBlog.action?id=${blog.id}">编辑</a>

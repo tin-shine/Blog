@@ -22,31 +22,33 @@ body {
 h1, h2, h3, h4 {
   color: #303030;
   font-family: 'Montserrat', sans-serif;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
 }
 
 h1 {
   font-size: 30px;
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 h2 {
   font-size: 24px;
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 h3 {
   font-size: 20px;
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 h3 {
   font-size: 18px;
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 h4 {
   font-size: 14px;
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 a {
@@ -1365,6 +1367,7 @@ textarea {
 .card .card-header ul{
   font-size: 14px;
   margin-top: 15px;
+  float: right;
 }
 
 .card .card-header li {
@@ -1372,10 +1375,23 @@ textarea {
   padding-right: 10px;
 }
 
-.card .card-header h1 {
-  font-size: 38px;
-  font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
+.card .card-body p {
+  font-size: 16px;
+  font-family: Cascadia code, 'Courier New', monospace;
+  margin-top: 0.5em;
+}
+
+.card .card-body code, pre {
+  font-size: 16px;
+  font-family: Cascadia code, 'Courier New', monospace;
+}
+
+.card .card-body article {
+  color: #151515;
+  text-align: justify;
+  line-height: 2em;
+  font-size: 16px;
+  font-family: Cascadia code, 'Courier New', monospace;
 }
 
 /* accordion */
