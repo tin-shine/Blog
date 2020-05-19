@@ -30,17 +30,24 @@ public class FrontController {
     @Autowired
     CommentService commentService;
 
-    private Logger logger = Logger.getLogger(this.getClass());
+//    private Logger logger = Logger.getLogger(this.getClass());
     public final int PAGE_CAPACITY = 8;
+    public List<BlogEntity> tBlogs; // total blogs，只初始化一次，用于存放博文列表，减少数据库访问
 
     @RequestMapping("index.action")
     public String index() {
         return "/front/index";
     }
 
+    // articles.action参数，session存放页面偏移量，map传递博客总表给jsp页面，pageCnt指示应该显示哪一页博客表
     @RequestMapping("articles.action")
     public String article(HttpSession session, ModelMap map, @RequestParam(value = "pageCount") int pageCnt) {
-        List<BlogEntity> blogs = blogService.listBlogs();
+        List<BlogEntity> blogs;
+        if (tBlogs == null || pageCnt == 0) {
+            tBlogs = blogService.listBlogs();
+            pageCnt = (pageCnt == 0 ? 1 : pageCnt);
+        }
+        blogs = tBlogs;
         List<BlogEntity> blogsDivision = currentPage(blogs, pageCnt, session);
         map.put("blogs", blogsDivision);
         return "/front/article";
@@ -87,7 +94,10 @@ public class FrontController {
 
     @RequestMapping("randomPage.action")
     public String randomPage(ModelMap map) {
-        List<BlogEntity> blogs = blogService.listBlogs();
+        List<BlogEntity> blogs;
+        if (tBlogs == null)
+            tBlogs = blogService.listBlogs();
+        blogs = tBlogs;
         List<Integer> blogsId = new ArrayList<>();
         for (BlogEntity blog: blogs) {
             blogsId.add(blog.getId());
@@ -112,7 +122,6 @@ public class FrontController {
     @RequestMapping("tag.action")
     public String tag(Model map) {
         List<String> tags = blogService.listTags();
-        logger.info("tags: " + tags.get(0));
         map.addAttribute("tags", tags);
         return "/front/tags";
     }
@@ -120,7 +129,8 @@ public class FrontController {
     @RequestMapping("searchTag.action")
     public String searchTag(String tag, Model map, HttpSession session) {
         List<BlogEntity> blogs = blogService.listBlogsByTag(tag);
-        map.addAttribute("blogs", currentPage(blogs, 1, session));
+        tBlogs = blogs;
+        map.addAttribute("blogs", currentPage(blogs, 1, session));  // blogs in current page
         return "/front/article";
     }
 }

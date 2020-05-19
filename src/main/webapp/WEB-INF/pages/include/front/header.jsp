@@ -57,7 +57,7 @@
             <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="navbar-nav mr-auto w-100 justify-content-left clearfix">
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/front/articles.action?pageCount=1">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/front/articles.action?pageCount=0">
                             <i class="ion ion-ios-paper-outline"></i> 文章
                         </a>
                     </li>
